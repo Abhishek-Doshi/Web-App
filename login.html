@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<div class="header"></div>
+
+<div id="navbar">
+    <a class="active" href="javascript:void(0)">Home</a>
+    <a href="javascript:void(0)">News</a>
+    <a href="javascript:void(0)">Contact</a>
+</div>
+
+<div class="main_content">   
+    
+    <img src="wallpaper.jpg" style="width:100%;">
+
+    <div align="right" class="top-right">
+        <div id="fillup" class="card">
+            <div class="tab">
+                <button class="tablinks" onclick="openForm(event, 'Login')" id="defaultOpen">Login</button>
+                <button class="tablinks" onclick="openForm(event, 'Sign Up')">Sign Up</button>   
+            </div>
+            
+            <div class="form_container">
+                <img src="laptop.webp" class="imgform">  
+                <div id="Login" class="tabcontent">
+                    <div align="left" class="entryform">
+                        Username<br>
+                        <input type="text" id="username"><br>
+                        Password<br>
+                        <input type="password" id="password">
+                        <div align="right" class="btns">
+                            <button class="ls_btn" id="login">Login</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div id="Sign Up" class="tabcontent">
+                    <div class="entryform"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function openForm(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+  
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+
+<script>
+    window.onscroll = function() {stickyNavbar()};
+    
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    
+    function stickyNavbar() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+</script>
+
+</body>
+</html>
